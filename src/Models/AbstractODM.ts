@@ -1,6 +1,6 @@
 import { model, Model, models, Schema } from 'mongoose';
 
-export default class ODMModel<T> {
+export default class AbstractODM<T> {
   protected model: Model <T>;
   protected schema: Schema;
   protected nameModel: string;

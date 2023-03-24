@@ -1,9 +1,9 @@
 import { isValidObjectId, Schema } from 'mongoose';
 import ICar from '../Interfaces/ICar';
 import ErrorUtils from '../Util/ErrorUtil';
-import ODMModel from './ODMModel';
+import AbstractODM from './AbstractODM';
 
-export default class CarODM extends ODMModel<ICar> {
+export default class CarODM extends AbstractODM <ICar> {
   constructor() {
     const schema = new Schema<ICar>({
       model: { type: String, required: true },

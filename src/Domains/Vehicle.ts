@@ -1,4 +1,4 @@
-import IVehicle from '../Interfaces/IVehicle'
+import IVehicle from '../Interfaces/IVehicle';
 
 export default class Vehicle {
   protected id?: string;
@@ -16,5 +16,4 @@ export default class Vehicle {
     this.status = vehicle.status || false;
     this.buyValue = vehicle.buyValue;
   }
-
 }
