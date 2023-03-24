@@ -5,8 +5,8 @@ import ICar from '../../../src/Interfaces/ICar';
 import CarServices from '../../../src/Services/CarServices';
 import Car from '../../../src/Domains/Car';
 
- describe('deveria criar um carro com sucesso', function(){
-  it('deveria criar um carro com sucesso', async function(){
+describe('deveria criar um carro com sucesso', function () {
+  it('deveria criar um carro com sucesso', async function () {
     const carInput: ICar = {
       model: 'Marea',
       year: 1992,
