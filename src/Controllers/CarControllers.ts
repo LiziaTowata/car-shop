@@ -48,4 +48,23 @@ export default class CarControllers {
       this.next(error);
     }
   }
+
+  public async getUpDateCar() {
+    const { id } = this.req.params;
+    const car: ICar = {
+      model: this.req.body.model,
+      year: this.req.body.year,
+      color: this.req.body.color,
+      status: this.req.body.status || false,
+      buyValue: this.req.body.buyValue,
+      doorsQty: this.req.body.doorsQty,
+      seatsQty: this.req.body.seatsQty,
+    };
+    try {
+      const newObjCar = await this.services.getUpDateCar(id, car);
+      return this.res.status(200).json(newObjCar);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }

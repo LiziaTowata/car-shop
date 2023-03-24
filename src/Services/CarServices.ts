@@ -29,4 +29,11 @@ export default class CarServices {
     if (!resultCarId) throw new ErrorUtils('Car not found', 404); 
     return this.carDomains(resultCarId);
   }
+
+  public async getUpDateCar(id: string, upDateCar: ICar) {
+    const carODM = new CarODM();
+    const resultUpDate = await carODM.getUpDateCar(id, upDateCar);
+    if (!resultUpDate) throw new ErrorUtils('Car not found', 404);
+    return this.carDomains(resultUpDate);
+  }
 }
