@@ -27,7 +27,7 @@ export default class MotorcyclesServices {
   public async getByIdMoto(id: string) {
     const motorcycles = new MotorcyclesODM();
     const resultMotoId = await motorcycles.getByIdMoto(id);
-    if(!resultMotoId) throw new ErrorUtils('Motorcycle not found', 404);
+    if (!resultMotoId) throw new ErrorUtils('Motorcycle not found', 404);
     return this.motorcyclesDomains(resultMotoId);
   }
 }

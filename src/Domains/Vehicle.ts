@@ -16,5 +16,4 @@ export default class Vehicle {
     this.status = vehicle.status || false;
     this.buyValue = vehicle.buyValue;
   }
-
 }

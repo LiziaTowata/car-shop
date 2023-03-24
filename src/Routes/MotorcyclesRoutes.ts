@@ -11,6 +11,5 @@ motorcyclesRoutes.get('/motorcycles', (req, res, next) =>
   
 motorcyclesRoutes.get('/motorcycles/:id', (req, res, next) =>
   new MotorcyclesControllers(req, res, next).getByIdMoto());
-  
 
 export default motorcyclesRoutes;
