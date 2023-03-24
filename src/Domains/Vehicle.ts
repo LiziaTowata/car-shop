@@ -1,6 +1,6 @@
 import IVehicle from '../Interfaces/IVehicle';
 
-export default class Vehicle {
+export default abstract class Vehicle {
   protected id?: string;
   protected model: string;
   protected year: number;
