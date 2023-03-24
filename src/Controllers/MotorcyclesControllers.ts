@@ -32,4 +32,20 @@ export default class MotorcyclesControllers {
       this.next(error);
     }
   }
+
+  public async listAllMoto() {
+    const result = await this.services.listAllMoto();
+    return this.res.status(200).json(result);
+  }
+
+  public async getByIdMoto() {
+    const { id } = this.req.params;
+
+    try {
+      const resultMotoId = await this.services.getByIdMoto(id);
+      return this.res.status(200).json(resultMotoId);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }
