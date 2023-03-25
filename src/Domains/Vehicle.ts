@@ -8,13 +8,13 @@ export default abstract class Vehicle {
   protected status?: boolean;
   protected buyValue: number;
 
-  constructor(vehicle: IVehicle) {
-    this.id = vehicle.id;
-    this.model = vehicle.model;
-    this.year = vehicle.year;
-    this.color = vehicle.color;
-    this.status = vehicle.status || false;
-    this.buyValue = vehicle.buyValue;
+  constructor(vehicleObj: IVehicle) {
+    this.id = vehicleObj.id;
+    this.model = vehicleObj.model;
+    this.year = vehicleObj.year;
+    this.color = vehicleObj.color;
+    this.status = vehicleObj.status || false;
+    this.buyValue = vehicleObj.buyValue;
   }
 
   public setId(id: string) {
