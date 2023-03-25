@@ -1,5 +1,6 @@
 import IVehicle from '../Interfaces/IVehicle';
 
+
 abstract class Vehicle {
   protected id?: string;
   protected model: string;
