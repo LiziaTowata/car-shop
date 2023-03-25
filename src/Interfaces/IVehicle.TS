@@ -2,7 +2,7 @@ export default interface IVehicle {
     id?: string;
     model: string;
     year: number;
-    color:string;
+    color: string;
     status?: boolean;
     buyValue: number;
-  }
+  };
