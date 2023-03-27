@@ -30,4 +30,11 @@ export default class MotorcyclesServices {
     if (!resultMotoId) throw new ErrorUtils('Motorcycle not found', 404);
     return this.motorcyclesDomains(resultMotoId);
   }
+
+  public async getUpDateMoto(id: string, upDateMoto: IMotorcycle) {
+    const motorcycles = new MotorcyclesODM();
+    const resultUpDate = await motorcycles.getUpDateMoto(id, upDateMoto);
+    if (!resultUpDate) throw new ErrorUtils('Motorcycle not found', 404);
+    return this.motorcyclesDomains(resultUpDate);
+  }
 }

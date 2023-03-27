@@ -48,4 +48,23 @@ export default class MotorcyclesControllers {
       this.next(error);
     }
   }
+
+  public async getUpDateMoto() {
+    const { id } = this.req.params;
+    const moto: IMotorcycle = {
+      model: this.req.body.model,
+      year: this.req.body.year,
+      color: this.req.body.color,
+      status: this.req.body.status || false,
+      buyValue: this.req.body.buyValue,
+      category: this.req.body.category,
+      engineCapacity: this.req.body.engineCapacity,
+    };
+    try {
+      const newObjMoto = await this.services.getUpDateMoto(id, moto);
+      return this.res.status(200).json(newObjMoto);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }
