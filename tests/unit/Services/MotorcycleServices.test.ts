@@ -19,7 +19,7 @@ describe('deveria criar uma moto com sucesso', function () {
 
     const motoOutput: Motorcycles = new Motorcycles({
       id: '6348513f34c397abcad040b2',
-      model: 'Honda Cb 600f Hornet',
+      model: 'Honda 600f Hornet',
       year: 2005,
       color: 'Yellow',
       status: true,
@@ -47,7 +47,7 @@ describe('deveria criar uma moto com sucesso', function () {
     }, 
     {
       id: '6348513f34c397abcad040b2',
-      model: 'Honda Cb 600f Hornet',
+      model: 'Honda Cb Hornet',
       year: 2005,
       color: 'Yellow',
       status: true,
@@ -71,7 +71,7 @@ describe('deveria criar uma moto com sucesso', function () {
     const motoId = '634852326b35b59438fbea31';
     const motoInput: IMotorcycle = {
       id: '634852326b35b59438fbea31',
-      model: 'Honda Cbr 1000rr',
+      model: 'Honda Cbr',
       year: 2011,
       color: 'Orange',
       status: true,
@@ -86,6 +86,37 @@ describe('deveria criar uma moto com sucesso', function () {
     const service = new MotorcyclesServices();
     const result = await service.getByIdMoto(motoId);
   
+    expect(result).to.be.deep.equal(motoOutput);
+  });
+
+  it('deveria conseguir atualizar a moto', async function () {
+    const motoUpDateId = '634852326b35b59438fbea31';
+    const motoInput: IMotorcycle = {
+      id: '634852326b35b59438fbea31',
+      model: 'Honda Cbr 1000rr',
+      year: 2011,
+      color: 'Orange',
+      status: true,
+      buyValue: 59.900,
+      category: 'Street',
+      engineCapacity: 1000,
+    };
+
+    const motoOutput: Motorcycles = new Motorcycles({
+      id: '634852326b35b59438fbea31',
+      model: 'Honda',
+      year: 2011,
+      color: 'Orange',
+      status: true,
+      buyValue: 99.900,
+      category: 'Street',
+      engineCapacity: 1000,
+    });
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(motoOutput);
+
+    const service = new MotorcyclesServices();
+    const result = await service.getUpDateMoto(motoUpDateId, motoInput);
+
     expect(result).to.be.deep.equal(motoOutput);
   });
 

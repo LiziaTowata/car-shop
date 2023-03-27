@@ -89,6 +89,36 @@ describe('testando o CarServices', function () {
     expect(result).to.be.deep.equal(carOutput);
   });
 
+  it('deveria conseguir atualizar a carro', async function () {
+    const carUpDateId = '6348513f34c397abcad040b2';
+    const carInput: ICar = {
+      id: '6348513f34c397abcad040b2',
+      model: 'Marea',
+      year: 1992,
+      color: 'Red',
+      status: true,
+      buyValue: 12.000,
+      doorsQty: 2,
+      seatsQty: 5,
+    };
+    const carOutput: Car = new Car({
+      id: '6348513f34c397abcad040b2',
+      model: 'Marea',
+      year: 1992,
+      color: 'Red',
+      status: true,
+      buyValue: 77.000,
+      doorsQty: 2,
+      seatsQty: 5,
+    });
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(carOutput);
+
+    const service = new CarServices();
+    const result = await service.getUpDateCar(carUpDateId, carInput);
+
+    expect(result).to.be.deep.equal(carOutput);
+  });
+
   afterEach(function () {
     sinon.restore();
   });
