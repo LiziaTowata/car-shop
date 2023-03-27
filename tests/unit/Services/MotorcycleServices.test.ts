@@ -88,4 +88,8 @@ describe('deveria criar uma moto com sucesso', function () {
   
     expect(result).to.be.deep.equal(motoOutput);
   });
+
+  afterEach(function () {
+    sinon.restore();
+  });
 });

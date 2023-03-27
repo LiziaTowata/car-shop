@@ -88,4 +88,8 @@ describe('testando o CarServices', function () {
   
     expect(result).to.be.deep.equal(carOutput);
   });
+
+  afterEach(function () {
+    sinon.restore();
+  });
 });
